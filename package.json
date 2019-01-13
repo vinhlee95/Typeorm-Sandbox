@@ -1,0 +1,19 @@
+{
+	"name": "typeorm-sandbox",
+	"version": "0.0.1",
+	"description": "Awesome project developed with TypeORM.",
+	"devDependencies": {
+		"@types/node": "^8.0.29",
+		"nodemon": "^1.18.9",
+		"ts-node": "3.3.0",
+		"typescript": "2.5.2"
+	},
+	"dependencies": {
+		"pg": "^7.7.1",
+		"reflect-metadata": "^0.1.10",
+		"typeorm": "0.2.9"
+	},
+	"scripts": {
+		"dev": "nodemon --exec ts-node src/index.ts"
+	}
+}
