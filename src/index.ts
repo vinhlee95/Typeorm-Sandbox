@@ -1,13 +1,12 @@
-import "reflect-metadata";
-import {createConnection} from "typeorm";
-import {User} from "./entity/User";
+const express = require('express')
+import 'reflect-metadata';
+import { createConnection } from 'typeorm';
+import { createTodo, readTodos, getCompletedTodos } from './todosManager';
 
-createConnection().then(async connection => {
-    const user = new User();
-    user.firstName = "Timber";
-    user.lastName = "Saw";
-    user.age = 25;
-    await connection.manager.save(user);
-    console.log("Saved a new user with id: " + user.id);
-
-}).catch(error => console.log(error));
+createConnection().then(async () => {
+  const app = express();
+  app.get('/create', createTodo);
+	app.get('/read', readTodos);
+	app.get('/complete', getCompletedTodos)
+  app.listen(3000, () => console.log('Example app listening on port 3000!'));
+}).catch((error) => console.log(error));
